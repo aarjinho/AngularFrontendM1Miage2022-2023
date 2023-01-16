@@ -70,7 +70,7 @@ onSaveAssignment() {
   this.assignment.auteur=this.auteur
   this.assignment.nomMatiere=this.nomMatiere
    if (this.note){
-  this.assignment.note!=this.note}
+  this.assignment.note=this.note}
   this.assignment.remarques=this.remarques
   this.assignmentsService
     .updateAssignment(this.assignment)
