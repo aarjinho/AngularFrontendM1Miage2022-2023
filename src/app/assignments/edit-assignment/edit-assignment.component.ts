@@ -53,7 +53,7 @@ onLogout(){
   this.authService.logOut()  }
 onSaveAssignment() {
   if (!this.assignment) return;
- else if (!this.nomDevoir|| !this.dateDeRendu || !this.auteur || !this.remarques || !this.nomMatiere ) {
+ else if (!this.nomAssignment|| !this.dateDeRendu || !this.auteur || !this.remarques || !this.nomMatiere ) {
       alert('Veuillez remplir tout les champs !' );
       return;
     }
