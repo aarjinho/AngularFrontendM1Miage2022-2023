@@ -1,0 +1,78 @@
+
+<div class="container-search-filter">
+  <label>
+    Search :
+    <input type="search" [(ngModel)]="search" name="search" (input)="onSearch()">
+  </label>
+  <label>
+    Filtrer par rendu :
+  
+  <select name="filtrer" [(ngModel)]="filter" (ngModelChange)="onFilter()">
+  
+    <option value="">All</option>
+    <option value="rendu">rendu</option>
+    <option value="nonRendu">non Rendu</option>
+  
+  </select>
+  </label>
+  </div>
+  <div class="AjouterBtn">
+    <a routerLink="/add">
+      <button mat-flat-button color="accent">
+        Ajouter Assignment
+      </button>
+    </a>
+  </div>
+  <main class="container">
+  
+  
+    <div><h1>Liste des devoirs à rendre (assignments) :</h1></div>
+    
+  
+   
+  
+    <table mat-table #table matSort aria-label="Assignment" [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="Nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="Matiere">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Matière </th>
+        <td mat-cell *matCellDef="let element"> {{element.nomMatiere}} </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Auteur">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Auteur </th>
+        <td mat-cell *matCellDef="let element"> {{element.auteur}} </td>
+      </ng-container>
+    
+      <ng-container  matColumnDef="Details">
+        <th mat-header-cell *matHeaderCellDef> Details </th>
+        <td mat-cell *matCellDef="let element"> <button class="buttonDetails" type="submit" color="primary" (click)="onAssignmentClicke(element)" >details</button> </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onAssignmentClicke(row)" [ngClass]="{'rendu': row.rendu, 'nonRendu':!row.rendu }"></tr>
+    </table>
+    <mat-paginator
+    aria-label="Choississez la page des assignments"
+    [length]="totalDocs"
+    [pageIndex]="page"
+    [pageSize]="limit"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    (page)="update()"
+    >
+  </mat-paginator>
+  
+  
+    

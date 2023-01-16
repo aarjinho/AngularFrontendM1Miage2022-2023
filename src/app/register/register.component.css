@@ -1,0 +1,108 @@
+
+/* Centers the form within the page */
+.formulaire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Styles the form */
+form {
+  width: 50%;
+  max-width: 400px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 40px;
+}
+/* Styles the form inputs */
+input[type="text"], input[type="password"] {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 12px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+/* Applies a transition effect to the border color of the input when it is focused */
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: #00bcd4;
+}
+
+/* Styles the form label */
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Styles the submit button */
+button[type="submit"] {
+  width: 100%;
+  border: none;
+  background-color: #00bcd4;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Applies a transition effect to the background color of the button when it is hovered */
+button[type="submit"]:hover {
+  background-color: #00acc1;
+}
+
+/* Styles the link to the sign up page */
+a {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #00bcd4;
+  margin-top: 20px;
+  }
+  
+  /* Applies a transition effect to the color of the link when it is hovered */
+  a:hover {
+  color: #00acc1;
+  }
+
+
+
+/* Dark mode styles */
+.dark-mode nav {
+  background-color: #3333;
+}
+
+.dark-mode .nav-title {
+  color: white;
+}
+
+.dark-mode form {
+  background-color: #333333;
+}
+
+.dark-mode input[type="text"], .dark-mode input[type="password"] {
+  color: white;
+  border-color: #ddd;
+}
+
+.dark-mode label {
+  color: white;
+}
+
+.dark-mode button[type="submit"] {
+  background-color: #00acc1;
+}
+
+.dark-mode a {
+  color: white;
+}

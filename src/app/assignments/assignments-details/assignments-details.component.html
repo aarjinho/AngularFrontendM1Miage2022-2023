@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-card *ngIf="assignmentTransmis">
+    <mat-card-header>
+      <img [src]="matiereImage" class="matiere-image">
+      <mat-card-title>{{assignmentTransmis.nom}}</mat-card-title>
+      <mat-card-subtitle>{{assignmentTransmis.nomMatiere}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="info">
+        <div class="info-item">
+          <mat-icon>person</mat-icon>
+          <span>{{assignmentTransmis.auteur}}</span>
+        </div>
+        <div class="info-item">
+          <img [src]="profImage" class="prof-icon">
+          <span>{{nomProf}}</span>
+        </div>        
+        <div class="info-item">
+          <mat-icon>note</mat-icon>
+          <span>{{assignmentTransmis.note}}</span>
+        </div>
+        <div class="info-item">
+          <mat-icon>date_range</mat-icon>
+          <span>{{assignmentTransmis.dateDeRendu | date}}</span>
+        </div>
+        <div class="info-item">
+
+          <span>Rendu : {{rendu()}}</span>
+        </div>
+      </div>
+      <mat-card-subtitle>Remarques :</mat-card-subtitle>
+      <p>{{assignmentTransmis.remarques}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="button-container">
+        <mat-checkbox [disabled]="note()" *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+          Devoir rendu
+        </mat-checkbox>
+        <nav><a routerLink="/assignment/{{assignmentTransmis.id}}/edit">
+          <button mat-stroked-button
+                  color="primary"
+                  type="submit"
+                  [disabled]="!isAdmin()">
+          EDIT
+        </button>
+        </a></nav>
+        <button mat-flat-button color="warn" (click)="onDelete()">
+          DELETE
+        </button>
+      </div>
+      
+    </mat-card-actions>
+  </mat-card>
+</div>
+

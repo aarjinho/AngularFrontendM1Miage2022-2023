@@ -1,0 +1,59 @@
+
+<div class="container" *ngIf="assignment">
+ <h1>Edition de l'assignment {{assignment.nom}}</h1>
+ <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step >
+<form  ngForm  #assignmentForm class="form">
+  <mat-form-field>
+    <input matInput placeholder="Edition du nom" [(ngModel)]="nomAssignment" name="assignment-name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="auteur" name="auteur" placeholder="Auteur" required>
+  </mat-form-field>
+  <div>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+</form >
+</mat-step>
+<mat-step>
+  <form >
+  <mat-form-field>
+    <input matInput [(ngModel)]="note" name="note" placeholder="Note" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="remarques" name="remarques" placeholder="Remarques" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="nomMatiere" name="nomMatiere" placeholder="Nom de la Matière" required>
+  </mat-form-field>
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+</form>
+</mat-step>  
+  <mat-step>
+    <form ngForm>
+    <ng-template matStepLabel>Done</ng-template>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  <mat-form-field appearance="fill">
+    <input matInput [matDatepicker]="picker"  placeholder="Edition de la date" [(ngModel)]="dateDeRendu" name="date" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button mat-raised-button color="primary" [disabled]="((!nomAssignment)||(!dateDeRendu))" (click)="onSaveAssignment()">
+    Sauver
+  </button>
+</form>
+</mat-step>
+</mat-stepper>
+
+   
+ 
+
