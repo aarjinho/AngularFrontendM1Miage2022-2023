@@ -53,13 +53,24 @@ onLogout(){
   this.authService.logOut()  }
 onSaveAssignment() {
   if (!this.assignment) return;
+ else if (!this.nomDevoir|| !this.dateDeRendu || !this.auteur || !this.remarques || !this.nomMatiere ) {
+      alert('Veuillez remplir tout les champs !' );
+      return;
+    }
+    else if ((this.note)&&(Number.isNaN(+this.note)||+this.note>20 || +this.note<0)){
+   
+      alert('Veuillez donner une note valide')
+    } 
+  
+    else {
 
   // on récupère les valeurs dans le formulaire
   this.assignment.nom = this.nomAssignment;
   this.assignment.dateDeRendu = this.dateDeRendu;
   this.assignment.auteur=this.auteur
   this.assignment.nomMatiere=this.nomMatiere
-  this.assignment.note!=this.note
+   if (this.note){
+  this.assignment.note!=this.note}
   this.assignment.remarques=this.remarques
   this.assignmentsService
     .updateAssignment(this.assignment)
@@ -68,6 +79,6 @@ onSaveAssignment() {
       alert("Edition réussite")
       // navigation vers la home page
       this.router.navigate(['/home']);
-    });
+    });}
 }
 }
