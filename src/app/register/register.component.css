@@ -85,7 +85,7 @@ a {
 }
 
 .dark-mode input[type="text"], .dark-mode input[type="password"] {
-  color: white;
+  color: black;
   border-color: #ddd;
 }
 
