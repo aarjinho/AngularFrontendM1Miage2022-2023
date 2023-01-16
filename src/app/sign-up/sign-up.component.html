@@ -1,4 +1,4 @@
-<div class="formulaire">
+<div class="formulaire" [ngClass]="{'dark-mode': darkModeService.isDarkMode}" >
   <form [formGroup]="form" class="form" >
       <label>
           Nom:
@@ -28,6 +28,6 @@
       </label>
   
       <button type="submit" (click)="sendData()" color="primary">S'inscrire</button>
-      <a href="/login">Vous avez déjà un compte?</a>
+      <a (click)="onLogin()" >Vous avez déjà un compte?</a>
     </form>
   </div>

@@ -8,6 +8,7 @@ import { Observable, pipe} from 'rxjs';
 import { AssignmentsService } from '../shared/assignments.service';
 import { AuthService } from '../shared/auth.service';
 import { Assignment } from './assignment.model';
+import { DarkModeService } from '../dark-mode.service';
 
 @Component({
   selector: 'app-assignments',
@@ -53,7 +54,7 @@ export class AssignmentsComponent implements OnInit {
   
   @ViewChild(MatSort) sort!:MatSort;
   
-  constructor(private assignmentsService: AssignmentsService,private authService:AuthService,private router:Router) {}
+  constructor(private assignmentsService: AssignmentsService,private authService:AuthService,private router:Router,public darkModeService: DarkModeService ) {}
   
 //   ngAfterViewInit() {
 //     this.dataSource = new MatTableDataSource(this.assignments);

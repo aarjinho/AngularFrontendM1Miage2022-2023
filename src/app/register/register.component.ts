@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { DarkModeService } from '../dark-mode.service';
+
 
 @Component({
   selector: 'app-register',
@@ -11,10 +13,13 @@ import { AuthService } from '../shared/auth.service';
 export class RegisterComponent implements OnInit {
 
 
-  darkMode:boolean=false
+
   loggedIn=this.Api.loggedIn;
+  constructor(private Api:AuthService,private router:Router, public darkModeService: DarkModeService) { }
+
  
-  constructor(private Api:AuthService,private router:Router) { }
+
+
   ngOnInit(): void {
     if (this.loggedIn) {this.router.navigate(['/home'])}
   }

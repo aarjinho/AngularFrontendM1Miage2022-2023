@@ -15,6 +15,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
 }
 
 mat-form-field {
@@ -58,4 +59,12 @@ button[color="success"] {
 button[color="warn"] {
   background-color: #f44336;
   color: white;
+}
+
+.drak-mode mat-horizontal-stepper {
+  background-color: #A27B5C;
+}
+
+.dark-mode label {
+  color: green;
 }

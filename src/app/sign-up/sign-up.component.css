@@ -90,3 +90,30 @@ a {
   display: block;
   text-align: center;
 }
+
+
+
+.dark-mode form {
+  background-color: #3F4E4F;
+}
+
+.dark-mode input[type="text"], .dark-mode input[type="password"] {
+  color: white;
+  border-color: #ddd;
+}
+
+.dark-mode label {
+  color: white;
+}
+
+.dark-mode button[type="submit"] {
+  background-color: #A27B5C;
+}
+
+.dark-mode a {
+  color: white;
+}
+
+a{
+  cursor: pointer;
+}

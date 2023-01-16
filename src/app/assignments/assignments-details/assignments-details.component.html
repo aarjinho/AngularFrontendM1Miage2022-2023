@@ -33,7 +33,7 @@
     </mat-card-content>
     <mat-card-actions>
       <div class="button-container">
-        <mat-checkbox [disabled]="note()" *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()">
+        <mat-checkbox  *ngIf="!note()" (click)="onAssignmentRendu()">
           Devoir rendu
         </mat-checkbox>
         <nav><a routerLink="/assignment/{{assignmentTransmis.id}}/edit">

@@ -1,6 +1,6 @@
 <body>
   <div class="container">
-    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-horizontal-stepper [linear]="isLinear" [ngClass]="{'dark-mode': darkModeService.isDarkMode}" #stepper>
       <mat-step label="Step 1">
         <form  ngForm  #assignmentForm class="form">
           <mat-form-field>

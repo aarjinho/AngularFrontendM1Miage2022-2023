@@ -1,6 +1,5 @@
 html, body {
     margin: 0;
-    background-color: blue;
   }
   
 
@@ -28,7 +27,8 @@ nav {
     color: white;
     margin: 0; /* Removes the right margin */
 }
-  
+
+
   /* Centers the title in the navbar */
 .nav-title {
     margin-left: auto;
@@ -49,3 +49,10 @@ main{
     z-index: 0;
     margin: 0;
 }
+
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #2C3639;
+}
+

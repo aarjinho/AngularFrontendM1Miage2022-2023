@@ -14,7 +14,7 @@ export class AssignmentsService {
               private http:HttpClient) { }
 
 //  uri = "http://localhost:3000/api/assignments";
-uri="https://angularbackendm1miage.onrender.com/api/assignments";
+uri="https://angularbackendm1miage2022-2023.onrender.com/api/assignments";
 //  uri ="mongodb+srv://aarjinho:Uoto8EcqGqpjiUPh@cluster0.9swzbqa.mongodb.net/assignments?retryWrites=true&w=majority";
 
   getAssignments():Observable<Assignment[]> {
@@ -28,7 +28,7 @@ uri="https://angularbackendm1miage.onrender.com/api/assignments";
     return this.http.get<Assignment[]>(this.uri+'?page='+page+'&limit='+limit)
   }
   search(name:string):Observable<Assignment[]>{
-    return this.http.get<Assignment[]>("https://angularbackendm1miage.onrender.com/api/"+name)
+    return this.http.get<Assignment[]>("https://angularbackendm1miage2022-2023.onrender.com/api/"+name)
   }
   // renvoie comme Observable l'assignment dont l'id est passé
   // en paramètre, ou undefined s'il n'existe pas

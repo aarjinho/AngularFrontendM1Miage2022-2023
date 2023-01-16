@@ -78,16 +78,10 @@ a {
 
 
 /* Dark mode styles */
-.dark-mode nav {
-  background-color: #3333;
-}
 
-.dark-mode .nav-title {
-  color: white;
-}
 
 .dark-mode form {
-  background-color: #333333;
+  background-color: #3F4E4F;
 }
 
 .dark-mode input[type="text"], .dark-mode input[type="password"] {
@@ -100,9 +94,11 @@ a {
 }
 
 .dark-mode button[type="submit"] {
-  background-color: #00acc1;
+  background-color: #A27B5C;
 }
 
 .dark-mode a {
   color: white;
 }
+ a{
+  cursor: pointer;}

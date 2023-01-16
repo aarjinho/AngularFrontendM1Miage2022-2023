@@ -1,36 +1,11 @@
-<title>Mon compte</title>
-<style>
-  /* CSS styles go here */
-  body {
-    font-family: Arial, sans-serif;
-  }
-  .container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  h1 {
-    text-align: center;
-  }
-  .user-info {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  .user-info p {
-    margin: 0;
-    text-align: center;
-  }
-  .user-info h2 {
-    margin: 0;
-    text-align: center;
-  }
-</style>
-<div class="container">
-  <h1>Mon compte</h1>
-  <div class="user-info">
-    <h2>Email :</h2>
-    <p>{{email}}</p>
-    <h2>Role :</h2>
-    <p>{{role}}</p>
+<body [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
+  <div class="container">
+    <h1>Mon compte</h1>
+    <div class="user-info">
+      <h2>Email :</h2>
+      <p>{{email}}</p>
+      <h2>Role :</h2>
+      <p>{{role}}</p>
+    </div>
   </div>
-</div>
+</body>

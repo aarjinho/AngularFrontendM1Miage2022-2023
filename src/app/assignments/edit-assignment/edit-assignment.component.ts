@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Assignment } from '../assignment.model';
+import { DarkModeService } from '../../dark-mode.service';
 
 @Component({
  selector: 'app-edit-assignment',
@@ -14,7 +15,7 @@ export class EditAssignmentComponent implements OnInit {
  nomAssignment!: string;
  dateDeRendu!: Date;
  auteur:string='';
- note:number=0;
+ note:number | undefined;
  remarques:string='';
  nomMatiere:string='';
  isLinear = false;
@@ -24,7 +25,8 @@ export class EditAssignmentComponent implements OnInit {
    private assignmentsService: AssignmentsService,
    private route: ActivatedRoute,
    private authService:AuthService,
-   private router: Router
+   private router: Router,
+   public darkModeService: DarkModeService ,
  ) {}
 
  ngOnInit(): void {
@@ -57,7 +59,7 @@ onSaveAssignment() {
   this.assignment.dateDeRendu = this.dateDeRendu;
   this.assignment.auteur=this.auteur
   this.assignment.nomMatiere=this.nomMatiere
-  this.assignment.note=this.note
+  this.assignment.note!=this.note
   this.assignment.remarques=this.remarques
   this.assignmentsService
     .updateAssignment(this.assignment)

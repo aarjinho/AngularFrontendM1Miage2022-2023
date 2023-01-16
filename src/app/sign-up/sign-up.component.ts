@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth.service';
+import { DarkModeService } from '../dark-mode.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,9 +10,10 @@ import { AuthService } from '../shared/auth.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  
 
   
-  constructor(private Api:AuthService) { }
+  constructor(private Api:AuthService,public darkModeService: DarkModeService,private router:Router) { }
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
@@ -41,4 +44,10 @@ export class SignUpComponent implements OnInit {
   }
 }
   }
+
+  onLogin(){
+    this.router.navigate(['/'])
+    
+  }
+
 }

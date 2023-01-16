@@ -3,7 +3,7 @@
   <header>
     <nav>
         <mat-toolbar color="primary">
-          <button mat-icon-button (click)="sidenav.toggle()">
+          <button mat-icon-button *ngIf="this.logged"(click)="sidenav.toggle()">
             <mat-icon>menu</mat-icon>
           </button>
             <a class="nav-title">{{title}}</a>
@@ -20,10 +20,10 @@
   
   
   <body>
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="push">
+  <mat-sidenav-container [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
+    <mat-sidenav #sidenav mode="push" >
       <mat-nav-list>
-        <a mat-list-item routerLink="/home">Home</a>
+        <a mat-list-item routerLink="/home">Liste des devoirs</a>
         <a mat-list-item routerLink="/add">Ajout d'un devoir</a>
         <a mat-list-item routerLink="/myAccount">Mon compte</a>
       </mat-nav-list>

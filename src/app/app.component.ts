@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { AuthService } from './shared/auth.service';
 import { LoggingService } from './shared/logging.service';
+import { DarkModeService } from './dark-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -33,9 +34,18 @@ import { LoggingService } from './shared/logging.service';
 // }
 export class AppComponent {
   title = 'Application de gestion des assignments';
-  logged=this.authService.loggedIn
-  constructor(private authService:AuthService, private router:Router) {}
-  
+  logged=false
+  constructor(private authService:AuthService, private router:Router,public darkModeService: DarkModeService) {}
+
+  ngOnInit(){
+    this.authService
+    .getLogChange()
+    .pipe(delay(0))
+    .subscribe((value) => {
+      this.logged = value;
+    });
+
+}
   open=false
   login() {
     if(!this.authService.loggedIn) {
@@ -44,13 +54,16 @@ export class AppComponent {
       this.authService.logOut();
       this.logged=true
       this.router.navigate(['/home']);
+
     }
   }
-  @Output() icon = this.authService.icon;
-  @Output()isDarkMode = this.authService.isDarkMode;
+  icon = 5;
+  isDarkMode = false;
   toggleDarkMode() {
-   this.authService.toggleDarkMode()
-   this.icon=this.authService.icon
-   this.isDarkMode=this.authService.isDarkMode
+    if(this.icon==4)
+      this.icon +=1;
+    else
+    this.icon -=1;
+    this.darkModeService.isDarkMode = !this.darkModeService.isDarkMode;
   }
 }

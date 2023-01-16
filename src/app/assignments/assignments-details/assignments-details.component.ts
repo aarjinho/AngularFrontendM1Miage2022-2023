@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Assignment } from '../assignment.model';
+import { DarkModeService } from '../../dark-mode.service';
 
 @Component({
   selector: 'app-assignments-details',
@@ -23,6 +24,7 @@ export class AssignmentsDetailsComponent implements OnInit {
     private authService:AuthService,
     private route: ActivatedRoute,
     private router:Router,
+    public darkModeService: DarkModeService ,
   ) {}
 
   ngOnInit(): void {
@@ -57,12 +59,9 @@ export class AssignmentsDetailsComponent implements OnInit {
 
   note(){
     var note = this.assignmentTransmis?.note
-    if (!note || note==0){
-      return true
-    }
-    else {
-      return false
-    }
+    console.log(note)
+    console.log(!this.assignmentTransmis?.rendu )
+    return (note===undefined || this.assignmentTransmis?.rendu)
   }
 
   onDelete() {
@@ -151,11 +150,7 @@ export class AssignmentsDetailsComponent implements OnInit {
   isAdmin():boolean {
    
     var role = this.authService.currentUser.role
-    if (role=="teacher" || role =="admin"){
-      return true
-    }
-    else{
-      return false
-    }
+    return(role=="teacher" || role =="admin");
+     
   }
 }

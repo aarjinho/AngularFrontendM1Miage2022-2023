@@ -2,7 +2,7 @@
 <!-- [(ngModel)]="form.value.password" -->
 
 
-<div class="formulaire" [ngClass]="{'dark-mode': darkMode}">
+<div class="formulaire" [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
   <form [formGroup]="form" class="form" >
       <label>
         Email:
@@ -15,7 +15,7 @@
       </label>
       <br>
       <button type="submit" (click)="sendData()" color="primary">Se connecter</button>
-      <a href="/signup">Vous avez pas un compte ?</a>
+      <a (click)="onSignUp()">Vous avez pas un compte ?</a>
     </form>
   </div>
   

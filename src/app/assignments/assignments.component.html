@@ -1,5 +1,5 @@
 
-<div class="container-search-filter">
+  <div class="container-search-filter" [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
   <label>
     Search :
     <input type="search" [(ngModel)]="search" name="search" (input)="onSearch()">
@@ -16,17 +16,18 @@
   </select>
   </label>
   </div>
-  <div class="AjouterBtn">
+
+  <div class="AjouterBtn" [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
     <a routerLink="/add">
-      <button mat-flat-button color="accent">
+      <button  class="add" mat-flat-button  color="accent">
         Ajouter Assignment
       </button>
     </a>
   </div>
-  <main class="container">
+  <main class="container" [ngClass]="{'dark-mode': darkModeService.isDarkMode}">
   
   
-    <div><h1>Liste des devoirs à rendre (assignments) :</h1></div>
+    <div class="title"><h1>Liste des devoirs à rendre (assignments) :</h1></div>
     
   
    
