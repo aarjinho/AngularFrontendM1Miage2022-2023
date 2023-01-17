@@ -22,3 +22,8 @@ Cela créera un dossier dist avec la version optimisée et minifiée de votre ap
 
 # Note
 Vous devez avoir Node.js et Angular CLI installés sur votre machine pour exécuter ce projet. Si vous ne les avez pas, vous pouvez télécharger Node.js depuis le site officiel : https://nodejs.org/en/download/ et installer Angular CLI en exécutant npm install -g @angular/cli.
+
+
+# Video du Projet
+
+voici le lien pour regarder la video : https://hlsplay.tk/demo.mp4
